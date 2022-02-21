@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../../../client/middleware/auth');
 const { check, validationResult } = require('express-validator');
 const UserFood = require('../../models/UserFood');
-const User = require('../../../client/models/User');
+
 
 // @route   GET api/profile/me
 // @desc    Get current users profile
 // @access  private
 
-router.get('/me', auth, async (req, res) => {
+router.get('/me', async (req, res) => {
     try {
         const userfood = await UserFood.findOne({ user: req.user.id })
             .populate('user', ['name', 'avatar']);
@@ -28,11 +27,11 @@ router.get('/me', auth, async (req, res) => {
 // @route   POST api/userfood
 // @desc    Create or update userfood
 // @access  private
-router.post('/', [auth, [
+router.post('/', [
     check('MacroNutrients', 'MacroNutrients is required')
         .not()
         .isEmpty()
-]],
+],
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {

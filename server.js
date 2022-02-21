@@ -30,7 +30,7 @@ app.get('/', (req, res) => res.send('API running'));
 // define routes
 app.use('/api/food', require('./routes/api/food'));
 app.use('/api/userfood', require('./routes/api/userfood'));
-app.use('/api/externalapi', require('./routes/api/externalapi'));
+
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
