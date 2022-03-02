@@ -14,13 +14,7 @@ router.post('/', [
         .isEmpty(),
     check('Recipe', 'Recipe is required')
         .not()
-        .isEmpty(),
-    check('ServingSize', 'ServingSize is required')
-        .not()
-        .isEmpty(),
-    check('UnitMeasurement', 'UnitMeasurement is required')
-        .not()
-        .isEmpty(),
+        .isEmpty()
 ],
     async (req, res) => {
         const errors = validationResult(req);

@@ -11,17 +11,17 @@ const FoodSchema = new mongoose.Schema({
     },
     Recipe: {
         type: String,
-        required: true
+        required: false
     },
 
     ServingSize: {
         type: Number,
-        required: true
+        required: false
     },
 
     UnitMeasurement: {
         type: String,
-        required: true
+        required: false
     },
     Protein: {
         type: String,
