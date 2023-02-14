@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server",
+    "start:dev": "nodemon server.js",
     "docker-build-client": "NPM_CONFIG_PRODUCTION=false cd client && yarn install && yarn build",
     "docker-build-webapp": "concurrently \"yarn docker-build-client\" \"yarn start\""
   },
